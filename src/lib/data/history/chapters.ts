@@ -1,0 +1,52 @@
+export const chapters = [
+  {
+    id: '1',
+    title: 'Renaissance in Europe and Development of Science',
+    description: 'The dawn of modern science and the age of exploration',
+  },
+  {
+    id: '2',
+    title: 'European Colonialism',
+    description: 'The rise of European colonial empires across the globe',
+  },
+  {
+    id: '3',
+    title: 'India and European Colonialism',
+    description: 'The arrival and expansion of European powers in India',
+  },
+  {
+    id: '4',
+    title: 'Colonialism and the Marathas',
+    description: 'Interactions between European powers, Afghans, Siddis, and the Maratha Empire',
+  },
+  {
+    id: '5',
+    title: 'India: Social and Religious Reforms',
+    description: 'Social & religious reform movements in India, including princely states',
+  },
+  {
+    id: '6',
+    title: 'Indian Struggle against Colonialism',
+    description: 'From 1857 Revolt to Gandhi’s Non-cooperation, INA, Quit India',
+  },
+  {
+    id: '7',
+    title: 'India: Political Integration',
+    description: 'India’s political integration post-independence—Goa, Dadra & Nagar Haveli, Puducherry',
+  },
+  {
+    id: '8',
+    title: 'World Wars and India',
+    description: 'Impact of WWI and WWII on India\'s freedom struggle.',
+  },
+  {
+    id: '9',
+    title: 'Decolonisation to Political Integration of India',
+    description: 'The process of decolonisation in Asia and Africa.',
+  },
+  {
+    id: '10',
+    title: 'The Cold War',
+    description: 'The geopolitical tension between the USA and USSR and its global impact.',
+  },
+];

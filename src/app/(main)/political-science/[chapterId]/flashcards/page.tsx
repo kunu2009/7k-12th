@@ -15,7 +15,7 @@ interface FlashcardsPageProps {
 
 export default async function FlashcardsPage({ params }: FlashcardsPageProps) {
   const { chapterId } = await params;
-  const chapter = politicalScienceChapters.find((c) => c.chapterId === chapterId);
+  const chapter = politicalScienceChapters.find((c) => c.id === chapterId);
 
   if (!chapter) {
     notFound();

@@ -15,7 +15,7 @@ interface MCQsPageProps {
 
 export default async function MCQsPage({ params }: MCQsPageProps) {
   const { chapterId } = await params;
-  const chapter = politicalScienceChapters.find((c) => c.chapterId === chapterId);
+  const chapter = politicalScienceChapters.find((c) => c.id === chapterId);
 
   if (!chapter) {
     notFound();

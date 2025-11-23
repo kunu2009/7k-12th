@@ -14,7 +14,7 @@ interface StudyPageProps {
 
 export default async function StudyPage({ params }: StudyPageProps) {
   const { chapterId } = await params;
-  const chapter = politicalScienceChapters.find((c) => c.chapterId === chapterId);
+  const chapter = politicalScienceChapters.find((c) => c.id === chapterId);
 
   if (!chapter) {
     notFound();
@@ -62,23 +62,12 @@ export default async function StudyPage({ params }: StudyPageProps) {
       <div className="grid gap-6">
         <Card>
           <CardHeader>
-            <CardTitle>Summary</CardTitle>
+            <CardTitle>Study Content</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="leading-7">{content.summary}</p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Must Know Points</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="list-disc pl-6 space-y-2">
-              {content.mustKnow.map((point, index) => (
-                <li key={index} className="leading-7">{point}</li>
-              ))}
-            </ul>
+            <div className="prose dark:prose-invert max-w-none">
+              <p className="leading-7 whitespace-pre-wrap">{content}</p>
+            </div>
           </CardContent>
         </Card>
       </div>

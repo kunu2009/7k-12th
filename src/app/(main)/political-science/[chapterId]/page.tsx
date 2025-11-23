@@ -13,7 +13,7 @@ interface ChapterPageProps {
 
 export default async function ChapterPage({ params }: ChapterPageProps) {
   const { chapterId } = await params;
-  const chapter = politicalScienceChapters.find((c) => c.chapterId === chapterId);
+  const chapter = politicalScienceChapters.find((c) => c.id === chapterId);
 
   if (!chapter) {
     notFound();
@@ -29,12 +29,11 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
         </Link>
         <div>
           <h1 className="text-2xl font-bold tracking-tight">{chapter.title}</h1>
-          <p className="text-muted-foreground">Chapter {chapter.number}</p>
         </div>
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
-        <Link href={`/political-science/${chapter.chapterId}/study`}>
+        <Link href={`/political-science/${chapter.id}/study`}>
           <Card className="hover:bg-muted/50 transition-colors cursor-pointer h-full">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -48,7 +47,7 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
           </Card>
         </Link>
 
-        <Link href={`/political-science/${chapter.chapterId}/flashcards`}>
+        <Link href={`/political-science/${chapter.id}/flashcards`}>
           <Card className="hover:bg-muted/50 transition-colors cursor-pointer h-full">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -62,7 +61,7 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
           </Card>
         </Link>
 
-        <Link href={`/political-science/${chapter.chapterId}/mcqs`}>
+        <Link href={`/political-science/${chapter.id}/mcqs`}>
           <Card className="hover:bg-muted/50 transition-colors cursor-pointer h-full">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -82,7 +81,7 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
           <CardTitle>Chapter Overview</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="leading-7">{chapter.content}</p>
+          <p className="leading-7">{chapter.description}</p>
         </CardContent>
       </Card>
     </div>

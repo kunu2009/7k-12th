@@ -15,12 +15,12 @@ export default function PoliticalSciencePage() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {politicalScienceChapters.map((chapter) => (
-          <Link key={chapter.id} href={`/political-science/${chapter.chapterId}`}>
+        {politicalScienceChapters.map((chapter, index) => (
+          <Link key={chapter.id} href={`/political-science/${chapter.id}`}>
             <Card className="h-full hover:bg-muted/50 transition-colors cursor-pointer">
               <CardHeader>
                 <div className="flex justify-between items-start mb-2">
-                  <Badge variant="outline">Chapter {chapter.number}</Badge>
+                  <Badge variant="outline">Chapter {index + 1}</Badge>
                 </div>
                 <CardTitle className="line-clamp-2">{chapter.title}</CardTitle>
                 <CardDescription className="line-clamp-3">

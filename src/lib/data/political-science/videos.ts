@@ -11,7 +11,7 @@ export type Video = {
   fileSize?: string;
 };
 
-export const videos: Record<string, Video[]> = {
+export const politicalScienceVideos: Record<string, Video[]> = {
   'the-world-since-1991': [
       {
         id: 'video-1-1',

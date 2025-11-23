@@ -5,7 +5,7 @@ export type Reel = {
   imageId: string;
 };
 
-export const reels: Record<string, Reel[]> = {
+export const politicalScienceReels: Record<string, Reel[]> = {
   'the-world-since-1991': [
       { id: 'reel-1-1', title: 'Unipolar Moment', content: "After the Cold War, the U.S. became the world's sole superpower, a period known as the unipolar moment.", imageId: 'reel-1-1' },
       { id: 'reel-1-2', title: 'NATO Expansion', content: 'The North Atlantic Treaty Organization (NATO) expanded to include former Warsaw Pact countries, reshaping European security.', imageId: 'reel-1-2' },

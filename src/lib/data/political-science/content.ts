@@ -1,4 +1,4 @@
-export const content: Record<string, string> = {
+export const politicalScienceContent: Record<string, string> = {
   'the-world-since-1991': `
 The world has changed dramatically since 1991, a year that marked the definitive end of the Cold War with the dissolution of the Soviet Union. This seismic event dismantled the bipolar world order that had dominated international relations for nearly half a century. It ushered in an era often described as the "unipolar moment," where the United States stood as the sole global superpower. This period was characterized by the ascendancy of liberal democracy and free-market capitalism as the presumed final forms of human government, a concept famously articulated by Francis Fukuyama as "The End of History."
 

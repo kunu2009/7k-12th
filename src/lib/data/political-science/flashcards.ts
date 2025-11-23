@@ -4,7 +4,7 @@ export type Flashcard = {
   answer: string;
 };
 
-export const flashcards: Record<string, Flashcard[]> = {
+export const politicalScienceFlashcards: Record<string, Flashcard[]> = {
   'the-world-since-1991': [
         { id: 'fc-1-1', question: 'What were the main consequences of the disintegration of the Soviet Union?', answer: 'The end of the Cold War, the emergence of a unipolar world led by the US, the independence of 15 new countries, and a shift in international power dynamics.' },
         { id: 'fc-1-2', question: 'What is a unipolar world order?', answer: 'An international system in which one state exercises most of the cultural, economic, and military influence. After 1991, the United States was considered the sole superpower.' },

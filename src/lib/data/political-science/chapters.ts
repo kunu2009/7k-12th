@@ -1,4 +1,4 @@
-export const chapters = [
+export const politicalScienceChapters = [
   {
     id: 'the-world-since-1991',
     title: 'The World since 1991',

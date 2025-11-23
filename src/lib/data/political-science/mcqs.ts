@@ -5,7 +5,7 @@ export type MCQ = {
   correctAnswer: string;
 };
 
-export const mcqs: Record<string, MCQ[]> = {
+export const politicalScienceMCQs: Record<string, MCQ[]> = {
   'the-world-since-1991': [
         { id: 'mcq-1-1', question: 'The dissolution of the Soviet Union officially occurred in which year?', options: ['1989', '1990', '1991', '1992'], correctAnswer: '1991' },
         { id: 'mcq-1-2', question: 'Which of these is NOT a country that emerged from the former Yugoslavia?', options: ['Serbia', 'Croatia', 'Slovakia', 'Bosnia and Herzegovina'], correctAnswer: 'Slovakia' },

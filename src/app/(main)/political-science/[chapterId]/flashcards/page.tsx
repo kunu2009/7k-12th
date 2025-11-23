@@ -1,5 +1,5 @@
-import { economicsChapters } from "@/lib/data/economics/chapters";
-import { economicsFlashcards } from "@/lib/data/economics";
+import { politicalScienceChapters } from "@/lib/data/political-science/chapters";
+import { politicalScienceFlashcards } from "@/lib/data/political-science";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -15,19 +15,19 @@ interface FlashcardsPageProps {
 
 export default async function FlashcardsPage({ params }: FlashcardsPageProps) {
   const { chapterId } = await params;
-  const chapter = economicsChapters.find((c) => c.chapterId === chapterId);
+  const chapter = politicalScienceChapters.find((c) => c.chapterId === chapterId);
 
   if (!chapter) {
     notFound();
   }
 
-  const flashcards = economicsFlashcards[chapterId];
+  const flashcards = politicalScienceFlashcards[chapterId];
 
   if (!flashcards || flashcards.length === 0) {
     return (
       <div className="space-y-6">
         <div className="flex items-center gap-4">
-          <Link href={`/economics/${chapterId}`}>
+          <Link href={`/political-science/${chapterId}`}>
             <Button variant="ghost" size="icon">
               <ArrowLeft className="h-4 w-4" />
             </Button>
@@ -49,7 +49,7 @@ export default async function FlashcardsPage({ params }: FlashcardsPageProps) {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-4">
-        <Link href={`/economics/${chapterId}`}>
+        <Link href={`/political-science/${chapterId}`}>
           <Button variant="ghost" size="icon">
             <ArrowLeft className="h-4 w-4" />
           </Button>

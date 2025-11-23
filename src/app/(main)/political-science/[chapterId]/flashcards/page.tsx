@@ -21,9 +21,9 @@ export default async function FlashcardsPage({ params }: FlashcardsPageProps) {
     notFound();
   }
 
-  const flashcards = politicalScienceFlashcards[chapterId];
+  const chapterFlashcards = politicalScienceFlashcards[chapterId];
 
-  if (!flashcards || flashcards.length === 0) {
+  if (!chapterFlashcards || chapterFlashcards.length === 0) {
     return (
       <div className="space-y-6">
         <div className="flex items-center gap-4">
@@ -46,6 +46,12 @@ export default async function FlashcardsPage({ params }: FlashcardsPageProps) {
     );
   }
 
+  const formattedFlashcards = chapterFlashcards.map((card, index) => ({
+    term: card.question,
+    definition: card.answer,
+    id: card.id ?? `flashcard-${index}`,
+  }));
+
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-4">
@@ -60,7 +66,7 @@ export default async function FlashcardsPage({ params }: FlashcardsPageProps) {
         </div>
       </div>
 
-      <FlashcardViewer flashcards={flashcards} />
+  <FlashcardViewer flashcards={formattedFlashcards} />
     </div>
   );
 }

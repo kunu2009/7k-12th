@@ -21,9 +21,9 @@ export default async function MCQsPage({ params }: MCQsPageProps) {
     notFound();
   }
 
-  const mcqs = politicalScienceMCQs[chapterId];
+  const chapterMcqs = politicalScienceMCQs[chapterId];
 
-  if (!mcqs || mcqs.length === 0) {
+  if (!chapterMcqs || chapterMcqs.length === 0) {
     return (
       <div className="space-y-6">
         <div className="flex items-center gap-4">
@@ -46,6 +46,12 @@ export default async function MCQsPage({ params }: MCQsPageProps) {
     );
   }
 
+  const formattedMcqs = chapterMcqs.map((mcq) => ({
+    question: mcq.question,
+    options: mcq.options,
+    answer: mcq.correctAnswer,
+  }));
+
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-4">
@@ -60,7 +66,7 @@ export default async function MCQsPage({ params }: MCQsPageProps) {
         </div>
       </div>
 
-      <MCQQuiz mcqs={mcqs} />
+      <MCQQuiz mcqs={formattedMcqs} />
     </div>
   );
 }

@@ -1,9 +1,11 @@
 import { economicsChapters } from "@/lib/data/economics/chapters";
+import { getEconomicsQuestionsByChapter } from "@/lib/data/economics/question-bank";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, BrainCircuit, FileText, ArrowLeft } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { BookOpen, BrainCircuit, FileText, ArrowLeft, PenTool } from "lucide-react";
 
 interface ChapterPageProps {
   params: Promise<{
@@ -13,11 +15,13 @@ interface ChapterPageProps {
 
 export default async function ChapterPage({ params }: ChapterPageProps) {
   const { chapterId } = await params;
-  const chapter = economicsChapters.find((c) => c.chapterId === chapterId);
+  const chapter = economicsChapters.find((c) => c.id === chapterId);
 
   if (!chapter) {
     notFound();
   }
+
+  const chapterQuestions = getEconomicsQuestionsByChapter(chapterId);
 
   return (
     <div className="space-y-6">
@@ -33,8 +37,8 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
         </div>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
-        <Link href={`/economics/${chapter.chapterId}/study`}>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <Link href={`/economics/${chapter.id}/study`}>
           <Card className="hover:bg-muted/50 transition-colors cursor-pointer h-full">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -48,7 +52,24 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
           </Card>
         </Link>
 
-        <Link href={`/economics/${chapter.chapterId}/flashcards`}>
+        <Link href={`/economics/${chapter.id}/practice`}>
+          <Card className="hover:bg-muted/50 transition-colors cursor-pointer h-full border-primary">
+            <CardHeader>
+              <div className="flex items-center justify-between mb-2">
+                <CardTitle className="flex items-center gap-2">
+                  <PenTool className="h-5 w-5 text-primary" />
+                  Practice
+                </CardTitle>
+                <Badge variant="secondary">{chapterQuestions.length}</Badge>
+              </div>
+              <CardDescription>
+                Write and improve your answers
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        </Link>
+
+        <Link href={`/economics/${chapter.id}/flashcards`}>
           <Card className="hover:bg-muted/50 transition-colors cursor-pointer h-full">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -62,7 +83,7 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
           </Card>
         </Link>
 
-        <Link href={`/economics/${chapter.chapterId}/mcqs`}>
+        <Link href={`/economics/${chapter.id}/mcqs`}>
           <Card className="hover:bg-muted/50 transition-colors cursor-pointer h-full">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -82,7 +103,7 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
           <CardTitle>Chapter Overview</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="leading-7">{chapter.content}</p>
+          <p className="leading-7">{chapter.content || chapter.description}</p>
         </CardContent>
       </Card>
     </div>

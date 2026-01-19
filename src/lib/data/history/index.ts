@@ -7,3 +7,4 @@ export const historyContent = content;
 export const historyFlashcards = flashcards;
 export const historyMCQs = mcqs;
 export { historyChapters };
+export * from './question-bank';
